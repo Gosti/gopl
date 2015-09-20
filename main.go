@@ -23,14 +23,14 @@ func main() {
 		} else {
 			fmt.Println("Gopl: Huehoe it's embarrassing but an error occurs -> ", err)
 		}
-		return
+		os.Exit(1)
 	}
 
 	url := "http://play.golang.org/share"
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(content))
 	if err != nil {
 		fmt.Println(err)
-		return
+		os.Exit(1)
 	}
 	req.Header.Set("Content-Type", "raw")
 
@@ -38,7 +38,7 @@ func main() {
 	resp, err := client.Do(req)
 	if err != nil {
 		fmt.Println(err)
-		return
+		os.Exit(1)
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
