@@ -13,5 +13,5 @@ You can either use Stdin or a file as argument, both will give you an URL for th
 ``` sh
 $. gopl main.go
 # or
-$. cat main.go | gopl
+$. gopl < main.go
 ```
