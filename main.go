@@ -27,15 +27,8 @@ func main() {
 	}
 
 	url := "http://play.golang.org/share"
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(content))
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	req.Header.Set("Content-Type", "raw")
 
-	client := &http.Client{}
-	resp, err := client.Do(req)
+	resp, err := http.Post(url, "raw", bytes.NewBuffer(content))
 	if err != nil {
 		fmt.Println(err)
 		return
